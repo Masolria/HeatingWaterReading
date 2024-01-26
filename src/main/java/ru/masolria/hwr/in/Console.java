@@ -165,7 +165,7 @@ public class Console {
         }
 
         public static boolean availableAddReadings(User user) {
-            return user.getMeterReadings().availableAddReading();
+            return user.getMeterReadings().monthPassed();
         }
 
     }

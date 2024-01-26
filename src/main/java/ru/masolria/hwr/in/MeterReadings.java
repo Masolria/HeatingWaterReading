@@ -3,39 +3,43 @@ package ru.masolria.hwr.in;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class MeterReadings {
+
     private ArrayList<Calendar> monthsOfReading = new ArrayList<>();
     private ArrayList<Float> coldWater = new ArrayList<>();
     private ArrayList<Float> hotWater = new ArrayList<>();
     private
     ArrayList<Float> heating = new ArrayList<>();
 
-    public boolean availableAddReading() {
+    public boolean monthPassed() {
         if(monthsOfReading.size() ==0){
             return true;
         }
         Calendar currentMonth = Calendar.getInstance();
         Calendar lastMonth = monthsOfReading.get(monthsOfReading.size() - 1);
-        if (currentMonth.get(Calendar.MONTH) == lastMonth.get(Calendar.MONTH)) {
-            return false;
+        int diffYear = currentMonth.get(Calendar.YEAR)-lastMonth.get(Calendar.YEAR);
+        int diffMonth = diffYear + lastMonth.get(Calendar.MONTH) - currentMonth.get(Calendar.MONTH);
+        if (diffYear >=1 ||(currentMonth.get(Calendar.MONTH) - lastMonth.get(Calendar.MONTH) !=0)) {
+            return true;
         }
-        return true;
+        return false;
     }
 
 
     public boolean addReading(float cold, float hot, float heat, Calendar time) {
-        if (cold < 0 || hot < 0 || heat < 0) return false;
+        if (cold < 0 || hot < 0 || heat < 0||(!monthPassed())) return false;
         if (monthsOfReading.size() != 0) {
             Calendar previousMon = monthsOfReading.get(monthsOfReading.size() - 1);
             float previousCold = coldWater.get(coldWater.size() - 1);
             float previousHot = hotWater.get(hotWater.size() - 1);
             float previousHeat = heating.get(heating.size() - 1);
-            if (time.get(Calendar.MONTH) == previousMon.get(Calendar.MONTH)
-                    || previousCold > cold || previousHot > hot
+            if ( previousCold > cold || previousHot > hot
                     || previousHeat > heat) {
                 return false;
             }
+
         }
         coldWater.add(cold);
         hotWater.add(hot);
