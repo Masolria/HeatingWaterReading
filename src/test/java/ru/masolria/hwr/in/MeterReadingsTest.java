@@ -25,8 +25,8 @@ class MeterReadingsTest {
         Assertions.assertFalse(isAdd);//проверяет, что при значениях <0 выдает false
     }
     @Test
-    void addReading_monthsTrue(){
-        //пока не работает
+    void addReading_monthsTrue(){//проверяет обычное поведение
+
         Calendar previousMonth = Calendar.getInstance();
         previousMonth.set(2023,10,3);//хранит время 3 ноя 2023
         boolean isAddPrevious =meterReadings.addReading(5,5,5,previousMonth);
@@ -40,7 +40,7 @@ class MeterReadingsTest {
 
     }
     @Test
-    void addReading_monthsFalse(){//проверяет, что нельзя добавить в один месяц показания дважды.
+    void addReading_monthsFalse(){//Проверяет, что нельзя добавить в один месяц показания дважды.
         Calendar previousMonth = Calendar.getInstance();
         previousMonth.set(2024,0,4);//хранит время 4 янв 2020
         boolean isAddPrevious =meterReadings.addReading(5,5,5,previousMonth);
@@ -50,13 +50,13 @@ class MeterReadingsTest {
             Assertions.assertFalse(isAddCurrent);
     }
     @Test
-     void addReading_readingLessFalse(){
+     void addReading_readingLessFalse(){//Проверяет, что нельзя добавлять значения меньше предыдущих.
          Calendar previousMonth = Calendar.getInstance();
-         previousMonth.setTime(new Date(1578171661));//хранит время 4 янв 2020
+        previousMonth.set(2023,10,3);//хранит время 3 ноя 2023
          boolean isAddPrevious =meterReadings.addReading(5,5,5,previousMonth);
          Calendar currentMonth = Calendar.getInstance();
-         currentMonth.setTime(new Date(1579208461));//хранит время 17 янв 2020
-         boolean isAddCurrent = meterReadings.addReading(4,6,6,currentMonth);
+        currentMonth.set(2023,11,3);//хранит время 3 дек 2023
+         boolean isAddCurrent = meterReadings.addReading(4,4,4,currentMonth);
          Assertions.assertFalse(isAddCurrent);
      }
 
