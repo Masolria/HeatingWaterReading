@@ -6,14 +6,13 @@ import java.util.Calendar;
 
 /**
  * Класс, экземпляры которого хранят в себе записи показаний счетчиков пользователя.
- * среди полей показаний есть горячая и холодная вода, а также отопление.
+ * Среди полей показаний есть горячая и холодная вода, а также отопление.
  */
 public class MeterReadings {
-
     /**
      * Поле, содержащее месяца показаний
      */
-    private ArrayList<Calendar> monthsOfReading = new ArrayList<>();
+    private  ArrayList<Calendar> monthsOfReading = new ArrayList<>();
     /**
      * Поле, содержащее показания холодной воды
      */
