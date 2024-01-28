@@ -7,12 +7,18 @@ import java.util.Date;
 
 public class MeterReadings {
 
+    /**Поле, содержащее месяца показаний*/
     private ArrayList<Calendar> monthsOfReading = new ArrayList<>();
+    /**Поле, содержащее показания холодной воды*/
     private ArrayList<Float> coldWater = new ArrayList<>();
+    /**Поле, содержащее показания горячей воды*/
     private ArrayList<Float> hotWater = new ArrayList<>();
-    private
-    ArrayList<Float> heating = new ArrayList<>();
-
+    /**Поле, содержащее показания отопления*/
+    private ArrayList<Float> heating = new ArrayList<>();
+    /**
+     * Возвращает 
+     *
+     */
     public boolean monthPassed() {
         if(monthsOfReading.size() ==0){
             return true;

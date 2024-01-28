@@ -6,7 +6,17 @@ import java.io.InputStreamReader;
 import java.util.Calendar;
 import java.util.HashSet;
 
+/**
+ * Программа Console реализует приложение, которое
+ * принимает показания счетчиков через стандар, хранит и возвращает их
+ *
+ */
+
 public class Console {
+    /**
+     * Стартовая точка программы.
+     * @param args
+     */
     public static void main(String[] args) {
         useConsole();
 
@@ -137,7 +147,15 @@ public class Console {
     }
 
     static class UserInteraction {
+        /**
+         * Коллекция, хранит в себе всех зарегистрированных пользователей
+         */
         static HashSet<User> users = new HashSet<>();
+        /**
+         * Проверяет доступность регистрации пользователя
+         * @param personalAcc номер лицевого счета
+         * @return true, если пользователь с таким лицевым счетом еще не зарегистрирован
+         */
 
         public static boolean isAvailableRegister(String personalAcc) {
             for (User user : users) {
@@ -146,12 +164,23 @@ public class Console {
             }
             return true;
         }
-
+        /**
+         * Регистрирует нового пользователя
+         * @param personalAcc номер лицевого счета
+         * @param password пароль пользователя
+         * @return новый зарегистрированный пользователь
+         */
         public static User register(String personalAcc, String password) {
             User newUser = new User(personalAcc, password);
             users.add(newUser);
             return newUser;
         }
+        /**
+         * Проводит авторизацию пользователя
+         * @param personalAcc номер лицевого счета
+         * @param password пароль пользователя
+         * @return авторизованный пользователь, если он найден по указанным данным, иначе null
+         */
 
         public static User authorize(String personalAcc, String password) {
             for (User user : users) {
@@ -163,7 +192,11 @@ public class Console {
             System.out.println("учетная запись с данным лицевым счетом и паролем не найдена.");
             return null;
         }
-
+        /**
+         * Проверяет возможность добавления показаний счетчиков для пользователя
+         * @param user пользователь
+         * @return true, если пользователю разрешено добавлять показания счетчиков в текущем месяце
+         */
         public static boolean availableAddReadings(User user) {
             return user.getMeterReadings().monthPassed();
         }
