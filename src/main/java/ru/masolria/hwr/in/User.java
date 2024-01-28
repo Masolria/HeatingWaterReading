@@ -1,9 +1,15 @@
 package ru.masolria.hwr.in;
-
+/**
+ * Класс User представляет пользователя системы.
+ */
 public class User {
+    /**Лицевой счет*/
     private String personalAccount;
+    /**Пароль пользователя для входа*/
     private String password;
-    private MeterReadings meterReadings ;
+    /**Поле, хранящее в себе все показания счетчиков по месяцам*/
+    private MeterReadings meterReadings;
+
 
     public User(String personalAccount, String password) {
         this.personalAccount = personalAccount;

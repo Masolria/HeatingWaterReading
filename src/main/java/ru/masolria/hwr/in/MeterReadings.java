@@ -4,7 +4,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-
+/**
+ * Класс, экземпляры которого хранят в себе записи показаний счетчиков пользователя.
+ * среди полей показаний есть горячая и холодная вода, а также отопление.
+ */
 public class MeterReadings {
 
     /**
