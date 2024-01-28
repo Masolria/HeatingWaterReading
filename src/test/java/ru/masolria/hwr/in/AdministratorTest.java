@@ -44,5 +44,14 @@ class AdministratorTest {
         System.setOut(standardOut);
 
     }
-
+    @Test
+    void printAllReadings_voidStr(){
+        HashSet<User> users = new HashSet<>();
+        PrintStream standardOut = System.out;
+        ByteArrayOutputStream captor = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(captor));
+        admin.printAllReadings(users);
+        Assertions.assertEquals("",captor.toString().replaceAll("\r", "").trim());
+        System.setOut(standardOut);
+    }
 }
