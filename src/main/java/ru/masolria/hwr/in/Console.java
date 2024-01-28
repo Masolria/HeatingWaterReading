@@ -162,7 +162,6 @@ public class Console {
             e.printStackTrace();
         }
     }
-
     /**
      *
      */
@@ -221,6 +220,5 @@ public class Console {
         public static boolean availableAddReadings(User user) {
             return user.getMeterReadings().monthPassed();
         }
-
     }
 }

@@ -9,8 +9,6 @@ import java.io.PrintStream;
 import java.util.Calendar;
 import java.util.HashSet;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class AdministratorTest {
     private Administrator admin;
     @BeforeEach
@@ -42,7 +40,6 @@ class AdministratorTest {
         String expected = "Показания счетчиков 123:\n01-2024:\n\tхол. вода 3.0\n\tгоряч. вода 4.0\n\tотопление 5.0";
         Assertions.assertEquals(expected,captor.toString().replaceAll("\r", "").trim());
         System.setOut(standardOut);
-
     }
     @Test
     void printAllReadings_voidStr(){
