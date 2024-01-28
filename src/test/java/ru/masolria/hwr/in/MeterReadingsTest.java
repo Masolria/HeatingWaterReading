@@ -74,7 +74,8 @@ class MeterReadingsTest {
         time2.set(2023, Calendar.FEBRUARY, 1);
         meterReadings.addReading(120, 55, 220, time2);
 
-        String expected = "01-2023:\n\tхол. вода 100.0\n\tгоряч. вода 50.0\n\tотопление 200.0\n02-2023:\n\tхол. вода 120.0\n\tгоряч. вода 55.0\n\tотопление 220.0\n";
+        String expected = "01-2023:\n\tхол. вода 100.0\n\tгоряч. вода 50.0\n\tотопление 200.0" +
+                "\n02-2023:\n\tхол. вода 120.0\n\tгоряч. вода 55.0\n\tотопление 220.0\n";
 
         Assertions.assertEquals(expected, meterReadings.toString());
     }
