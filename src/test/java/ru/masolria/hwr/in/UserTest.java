@@ -26,9 +26,7 @@ class UserTest {
         Calendar prev = Calendar.getInstance();
         prev.set(2023,11,1);
         meterReadings.addReading(5, 5, 5, prev);
-//        Calendar curr = Calendar.getInstance();
-//        curr.set(2024,0,1);
-//        meterReadings.addReading(6, 6,6,curr);
+
         Assertions.assertEquals(meterReadings,user.getMeterReadings());
 
 

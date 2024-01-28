@@ -27,7 +27,6 @@ public class Administrator {
      */
     public void printAllReadings(HashSet<User> users){
         for (User user : users) {
-            System.out.println(user.getPersonalAccount() + ":\n");
             user.printReadings();
         }
     }
