@@ -17,8 +17,7 @@ public class Administrator {
      * @return true - если пароли совпадают, false - если нет.
      */
     boolean checkPassword(String passwd){
-        if (passwd.equals(password)) return true;
-        return false;
+        return passwd.equals(password);
     }
 
     /**
