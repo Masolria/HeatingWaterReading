@@ -3,7 +3,7 @@ package ru.masolria.hwr.in;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
+
 
 public class MeterReadings {
 
@@ -26,18 +26,13 @@ public class MeterReadings {
         Calendar currentMonth = Calendar.getInstance();
         Calendar lastMonth = monthsOfReading.get(monthsOfReading.size() - 1);
         int diffYear = currentMonth.get(Calendar.YEAR)-lastMonth.get(Calendar.YEAR);
-        int diffMonth = diffYear + lastMonth.get(Calendar.MONTH) - currentMonth.get(Calendar.MONTH);
-        if (diffYear >=1 ||(currentMonth.get(Calendar.MONTH) - lastMonth.get(Calendar.MONTH) !=0)) {
-            return true;
-        }
-        return false;
+        return diffYear >= 1 || (currentMonth.get(Calendar.MONTH) - lastMonth.get(Calendar.MONTH) != 0);
     }
 
 
     public boolean addReading(float cold, float hot, float heat, Calendar time) {
         if (cold < 0 || hot < 0 || heat < 0||(!monthPassed())) return false;
         if (monthsOfReading.size() != 0) {
-            Calendar previousMon = monthsOfReading.get(monthsOfReading.size() - 1);
             float previousCold = coldWater.get(coldWater.size() - 1);
             float previousHot = hotWater.get(hotWater.size() - 1);
             float previousHeat = heating.get(heating.size() - 1);
