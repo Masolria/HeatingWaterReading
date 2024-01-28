@@ -3,6 +3,8 @@ package ru.masolria.hwr.in;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Calendar;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ConsoleUserInteractionTest {
@@ -42,7 +44,8 @@ class ConsoleUserInteractionTest {
     }
 
     @Test
-    void addReadingTwice_false(){
-        testUser.
+    void availableAddReadings_WhenNotAvailable(){
+        testUser.getMeterReadings().addReading(4,4,4, Calendar.getInstance());
+        assertFalse(Console.UserInteraction.availableAddReadings(testUser));
     }
 }
