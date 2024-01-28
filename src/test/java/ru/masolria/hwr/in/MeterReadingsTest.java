@@ -79,7 +79,6 @@ class MeterReadingsTest {
 
         Assertions.assertEquals(expected, meterReadings.toString());
     }
-
     @Test
     void monthPassed_true() {
         Calendar time1 = Calendar.getInstance();

@@ -31,13 +31,11 @@ class ConsoleUserInteractionTest {
         assertNotNull(newUser);
         assertEquals("newAcc", newUser.getPersonalAccount());
     }
-
     @Test
     void authorize_nonRegistered() {
         User nonRegisteredUser = Console.UserInteraction.authorize("invalidAcc", "invalidPassword");
         assertNull(nonRegisteredUser);
     }
-
     @Test
     void availableAddReadings_WhenAvailable() {
         assertTrue(Console.UserInteraction.availableAddReadings(testUser));

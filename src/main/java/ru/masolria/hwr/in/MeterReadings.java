@@ -64,7 +64,6 @@ public class MeterReadings {
                     || previousHeat > heat) {
                 return false;
             }
-
         }
         coldWater.add(cold);
         hotWater.add(hot);
@@ -72,7 +71,6 @@ public class MeterReadings {
         monthsOfReading.add(time);
         return true;
     }
-
     /**
      * Метод, который возвращает показания счетчиков с указанием вида показаний.
      * @return строковое представление показаний счетчиков.

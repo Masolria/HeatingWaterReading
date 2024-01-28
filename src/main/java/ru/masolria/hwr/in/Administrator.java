@@ -10,7 +10,6 @@ public class Administrator {
     /** Хранит в себе пароль для доступа к функционалу администратора.
      */
     static private final String password = "AdminPassword";
-
     /**
      * Сравнивает предоставленный пароль с паролем администратора
      * @param passwd сравниваемый пароль с паролем администратора
@@ -19,7 +18,6 @@ public class Administrator {
     boolean checkPassword(String passwd){
         return passwd.equals(password);
     }
-
     /**
      * Выводит в консоль показания счетчиков всех пользователей
      * с указанием номера лицевого счета пользователя.

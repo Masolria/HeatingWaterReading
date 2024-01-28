@@ -29,11 +29,13 @@ class ConsoleTest {
         assertTrue(consoleOutput.contains("Введите номер лицевого счета"));
         assertTrue(consoleOutput.contains("Придумайте пароль"));
         assertTrue(consoleOutput.contains("Личный кабинет 123"));
+        System.setIn(storeIN);
+        System.setOut(storeOut);
     }
 
     @Test
-    void useConsole_authorizeAddReading() {//зашли после 1-го теста в созданный аккаунт, внесли показания, вышли.
-        //выполняется верно после первого теста
+    void useConsole_authorizeAddReading() {//Зашли после 1-го теста в созданный аккаунт, внесли показания, вышли.
+        //Выполняется верно после первого теста
         String inAddReading = "1\n123\npassword\n4\n10.5\n20.3\n30.7\n0\n";
         in = new ByteArrayInputStream(inAddReading.getBytes());
         System.setIn(in);
@@ -50,12 +52,12 @@ class ConsoleTest {
         assertTrue(consoleOutput.contains("Введите показания горячей воды"));
         assertTrue(consoleOutput.contains("Введите показания отопления"));
         assertTrue(consoleOutput.contains("Показания успешно записаны"));
+        System.setIn(storeIN);
+        System.setOut(storeOut);
     }
 
     @Test
     void useConsole_authorizeFalse() {//попытались авторизоваться с неизвестным лицевым счетом и паролем.
-
-
         String inAddReading = "1\nrandom\npassword\n0\n";
         in = new ByteArrayInputStream(inAddReading.getBytes());
         System.setIn(in);
@@ -69,13 +71,12 @@ class ConsoleTest {
         assertTrue(consoleOutput.contains("Введите ваш номер лицевого счета"));
         assertTrue(consoleOutput.contains("Введите ваш пароль"));
         assertTrue(consoleOutput.contains("учетная запись с данным лицевым счетом и паролем не найдена."));
+        System.setIn(storeIN);
+        System.setOut(storeOut);
 
     }
-
     @Test
     void useConsole_admin() {//зашли как админ, посмотрели показания пользователей, вышли.
-
-
         String inAddReading = "3\nAdminPassword\n5\n0\n";
         in = new ByteArrayInputStream(inAddReading.getBytes());
         System.setIn(in);
@@ -88,7 +89,7 @@ class ConsoleTest {
         String consoleOutput = out.toString();
         assertTrue(consoleOutput.contains("Вы зашли как администратор"));
         assertTrue(consoleOutput.contains("Введите пароль"));
+        System.setIn(storeIN);
+        System.setOut(storeOut);
     }
-
-
 }

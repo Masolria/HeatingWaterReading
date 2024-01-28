@@ -28,9 +28,5 @@ class UserTest {
         meterReadings.addReading(5, 5, 5, prev);
 
         Assertions.assertEquals(meterReadings,user.getMeterReadings());
-
-
     }
-
-
 }
