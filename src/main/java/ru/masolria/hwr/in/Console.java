@@ -36,6 +36,7 @@ public class Console {
      * 5-посмотреть историю показаний
      * 6-выход из учетной записи
      * 7-посмотреть показания счетчиков всех пользователей
+     * 8- посмотреть показания за конкретный месяц
      * 0-выход из системы
      *
      */
@@ -58,6 +59,7 @@ public class Console {
                             "4-добавить показания счетчиков за этот месяц" + "\n" +
                             "5-посмотреть историю показаний" + "\n" +
                             "6-выход из учетной записи\n" +
+                            "8- посмотреть показания за конкретный месяц\n" +
                             "0-выход из системы");
                     switch (bufferedConsole.readLine()) {
                         case "4" -> {
@@ -86,6 +88,10 @@ public class Console {
                         case "6" -> {
                             isAuthorized = false;
                         }
+                        case "8" ->{
+                            System.out.println("Введите месяц в формате мм-гггг");
+                            user.getMeterReadings().showMonthReading(bufferedConsole.readLine());
+                        }
                         case "0" -> {
                             insideLoop = false;
                         }
@@ -93,10 +99,11 @@ public class Console {
                     }
 
                 } else if (isAdmin) {
-                    System.out.println("Доступные команды\n" +
-                            "7-посмотреть показания счетчиков всех пользователей\n" +
-                            "6-выход из учетной записи\n" +
-                            "0-выход из системы");
+                    System.out.println("""
+                            Доступные команды
+                            7-посмотреть показания счетчиков всех пользователей
+                            6-выход из учетной записи
+                            0-выход из системы""");
                     switch (bufferedConsole.readLine()) {
                         case "7" ->{
                             new Administrator().printAllReadings(UserInteraction.users);

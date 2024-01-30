@@ -1,5 +1,8 @@
 package ru.masolria.hwr.in;
 
+import org.w3c.dom.ls.LSOutput;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -71,6 +74,29 @@ public class MeterReadings {
         heating.add(heat);
         monthsOfReading.add(time);
         return true;
+    }
+
+    public void showMonthReading(String formatDate) {
+        SimpleDateFormat formatter = new SimpleDateFormat("MM-yyyy");
+        Calendar myDate = Calendar.getInstance();
+        try {
+            myDate.setTime(formatter.parse(formatDate));
+        } catch (ParseException e) {
+            System.out.println("не удалось превратить строку в дату");
+        }
+        for(int i =0;i<monthsOfReading.size();i++){
+            Calendar date = monthsOfReading.get(i);
+
+            if(date.MONTH == myDate.MONTH && date.YEAR == myDate.YEAR){
+                System.out.println("Показания за "+formatter.format(date.getTime())+":\n\t" +
+                        "хол. вода "+coldWater.get(i)+"\n\t" +
+                        "горяч. вода "+hotWater.get(i)+"\n\t" +
+                        "топление "+heating.get(i));
+                return;
+        }
+
+    }
+        System.out.println("Показаний за данный месяц не подавалось");
     }
 
     /**
