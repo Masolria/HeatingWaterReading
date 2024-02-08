@@ -33,13 +33,13 @@ class AdministratorTest {
         User user = new User("123","qwerty");
         users.add(user);
         Calendar time =Calendar.getInstance();
-        time.set(2024,Calendar.JANUARY,7);
+        time.set(2024,Calendar.FEBRUARY,7);
         user.getMeterReadings().addReading(3,4,5, Calendar.getInstance());
         PrintStream standardOut = System.out;
         ByteArrayOutputStream captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
         admin.printAllReadings(users);
-        String expected = "Показания счетчиков 123:\n01-2024:\n\tхол. вода 3.0\n\tгоряч. вода 4.0\n\tотопление 5.0";
+        String expected = "Показания счетчиков 123:\n02-2024:\n\tхол. вода 3.0\n\tгоряч. вода 4.0\n\tотопление 5.0";
         Assertions.assertEquals(expected,captor.toString().replaceAll("\r", "").trim());
         System.setOut(standardOut);
 

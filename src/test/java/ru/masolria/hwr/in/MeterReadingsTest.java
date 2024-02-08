@@ -44,10 +44,10 @@ class MeterReadingsTest {
     @Test
     void addReading_monthsFalse() {//Проверяет, что нельзя добавить в один месяц показания дважды.
         Calendar previousMonth = Calendar.getInstance();
-        previousMonth.set(2024, 0, 4);//хранит время 4 янв 2020
+        previousMonth.set(2024, 1, 4);//хранит время 4 янв 2020
         boolean isAddPrevious = meterReadings.addReading(5, 5, 5, previousMonth);
         Calendar currentMonth = Calendar.getInstance();
-        currentMonth.set(2024, 0, 17);//хранит время 17 янв 2020
+        currentMonth.set(2024, 1, 17);//хранит время 17 янв 2020
         boolean isAddCurrent = meterReadings.addReading(6, 6, 6, currentMonth);
         Assertions.assertFalse(isAddCurrent);
     }
